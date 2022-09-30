@@ -1,0 +1,117 @@
+@import url('https://fonts.googleapis.com/css2?family=Fira+Sans&display=swap');
+.body {
+    font-family: "Fira Sans", sans-serif;
+    background-color: #8ECAE6;
+    color: #023047;
+}
+
+.title {
+    text-align: center;
+
+}
+
+.calculator {
+    display: grid;
+    border: 0.4em solid #023047;
+    background-color: #DFD3C3;
+    border-radius: 1.5em;
+    margin: auto;
+    height: 40em;
+    width: 30em;
+    justify-content: center;
+    align-content: center;
+    grid-template-columns: 6em 6em 6em 6em;
+    grid-template-rows: 7em 5em 6em 6em 6em 6em;
+    gap: 0.5em;
+    grid-template-areas: 
+    "display display display display"
+    "delete delete clear clear"
+    "seven eight nine divide"
+    "four five six multiply"
+    "one two three minus"
+    "point null equal plus";
+}
+
+.display {
+    display: grid;
+    grid-area: display;
+    background-color: white;
+    border: 0.3em solid #023047;
+    border-radius: 0.5em;
+    justify-items: end;
+    align-items: center;
+    font-size: 1.5em;
+}
+
+.buttons {
+    border-radius: 0.5em;
+    border-color: #023047;
+    background-color: #D0B8A8;
+    font-size: 1.5em;
+}
+
+.button-1 {
+    grid-area: delete;
+} 
+.button-2 {
+    grid-area: clear;
+
+}
+.button-3 {
+    grid-area: seven;
+}
+.button-4 {
+    grid-area: eight;
+}
+.button-5 {
+    grid-area: nine;
+}
+.button-6 {
+    grid-area: divide;
+}
+.button-7 {
+    grid-area: four;
+}
+.button-8 {
+    grid-area: five;
+}
+
+.button-9 {
+    grid-area: six;
+}
+
+.button-10 {
+    grid-area: multiply;
+}
+
+.button-11 {
+    grid-area: one;
+}
+
+.button-12 {
+    grid-area: two;
+}
+
+.button-13 {
+    grid-area: three;
+}
+
+.button-14 {
+    grid-area: minus;
+}
+
+.button-15 {
+    grid-area: point;
+}
+
+.button-16 {
+    grid-area: null;
+}
+
+.button-17 {
+    grid-area: equal;
+}
+
+.button-18 {
+    grid-area: plus;
+}
