@@ -35,12 +35,13 @@
 .display {
     display: grid;
     grid-area: display;
-    background-color: white;
+    background-color: rgb(255, 255, 255);
     border: 0.3em solid #023047;
     border-radius: 0.5em;
     justify-items: end;
     align-items: center;
     font-size: 1.5em;
+    overflow: hidden;
 }
 
 .buttons {
@@ -48,6 +49,10 @@
     border-color: #023047;
     background-color: #D0B8A8;
     font-size: 1.5em;
+}
+
+.buttons:active {
+    transform: scale(0.98);
 }
 
 .button-1 {
