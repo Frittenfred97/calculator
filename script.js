@@ -133,43 +133,54 @@ deleteButton.addEventListener("click", function () {
   document.getElementById("nmb").innerHTML = showDisplay;
 });
 
+//the Button operates the to numbers and the operator toghether
 equalButton.addEventListener("click", () => {
     operate();
 });
 
+//these are the calculation functions
 function add(a, b) {
-  result = a + b;
+  firstNumber = a + b;
   operator = "";
   secondNumber = "";
-  firstNumber = Math.round(result);
 }
 
 function subtract(a, b) {
-  result = a - b;
+  firstNumber = a - b;
   operator = "";
   secondNumber = "";
-  Math.round(firstNumber);
 }
 
 function multiply(a, b) {
   firstNumber = a * b;
   operator = "";
   secondNumber = "";
-  Math.round(firstNumber);
 }
 
 function divide(a, b) {
   firstNumber = a / b;
   operator = "";
   secondNumber = "";
-  Math.round(firstNumber);
 }
 
+
+//this is the operate function. It changes the number from a string to a integer.
+//then it checks wich operator was choosed.
+//At the divide operator he checks if it will be divided by 0 or no number is NaN.
 function operate () {
     dotButton.disabled = false;
     a = parseFloat(firstNumber);
     b = parseFloat(secondNumber);
-    let showDisplay = firstNumber + operator + secondNumber;
+    let updateDisplay = true;
+
+    if (a== 0 || b == 0) {
+        showDisplay = "Du kleiner Ganove!";
+        updateDisplay = false;
+    } else if (isNaN(a) && isNaN(b)) {
+        showDisplay = "Ohne moos nix los!";
+        updateDisplay = false;
+    }
+
     if (operator == "+") {
       add(a, b);
     } else if (operator == "-") {
@@ -177,13 +188,11 @@ function operate () {
     } else if (operator == "*") {
         multiply(a, b);
     } else {
-        if (a == 0 || b == 0) {
-            showDisplay = "Du kleiner Ganove!";
-        } else if (isNaN(a) && isNaN(b)) {
-            showDisplay = "Ohne moos nix los!";
-        } else {
-            divide(a, b);
-        }
+        divide(a, b);
+    }
+
+    if (updateDisplay == true) {
+        showDisplay = firstNumber + operator + secondNumber;
     }
     document.getElementById("nmb").innerHTML = showDisplay;
 };
