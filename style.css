@@ -55,6 +55,13 @@
     transform: scale(0.98);
 }
 
+.delete {
+    background-color: #D27B31;
+}
+
+.clear {
+    background-color: #969876;
+} 
 .button-1 {
     grid-area: delete;
 } 

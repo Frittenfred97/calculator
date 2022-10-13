@@ -2,7 +2,8 @@
 let firstNumber = "";
 let secondNumber = "";
 let operator = "";
-
+let showDisplay = "";
+ 
 //declaration of all connections between JS and HTML | Buttons & Display
 let numberButtons = document.querySelectorAll(".nmb-btn");
 let operatorButton = document.querySelectorAll(".operator");
@@ -11,6 +12,30 @@ let clearButton = document.querySelector(".clear");
 let equalButton = document.querySelector(".equal");
 let dotButton = document.querySelector(".button-15");
 
+//
+window.addEventListener("keydown", (e) => {
+    if(e.key == "Enter") {
+        equalButton.click();
+    } else if(e.key == "Backspace") {
+        deleteButton.click();
+    } else if(e.key == "Delete") {
+        clearButton.click();
+    } else if(e.key == "+" || e.key == "-" || e.key == "/" || e.key == "*") {
+        operatorButton.forEach((op) => {
+            if (op.value == e.key) {
+                op.click(e.value);
+            };
+        })
+    } else if(e.key == ".") {
+        dotButton.click();
+    } else if(e.key == "0" || e.key == "1" || e.key == "2" || e.key == "3" || e.key == "4" || e.key == "5" || e.key == "6" || e.key == "7" || e.key == "8" || e.key == "9") {
+        numberButtons.forEach((btn) => {
+            if (btn.value == e.key) {
+                btn.click(e.key);
+            }
+        })
+        }
+    })
 //Loop through every numeral Button to store the Value and display the Input.
 numberButtons.forEach((btn) => {
   btn.addEventListener("click", (e) => {
@@ -38,7 +63,7 @@ numberButtons.forEach((btn) => {
         break;
     }
 
-    let showDisplay = firstNumber + operator + secondNumber;
+    showDisplay = firstNumber + operator + secondNumber;
     document.getElementById("nmb").innerHTML = showDisplay;
   });
 });
@@ -50,17 +75,36 @@ clearButton.addEventListener("click", () => {
   operator = "";
   secondNumber = "";
 
-  let showDisplay = firstNumber + operator + secondNumber;
+  showDisplay = firstNumber + operator + secondNumber;
   document.getElementById("nmb").innerHTML = showDisplay;
 });
 
 //Operator button to define the operator button
 operatorButton.forEach((op) => {
   op.addEventListener("click", () => {
-    dotButton.disabled = false;
-    operator = op.value;
 
-    let showDisplay = firstNumber + operator + secondNumber;
+    if (firstNumber == "") {
+        firstNumber = "0";
+    }
+
+    switch (operator) {
+        case "+":
+        case "-":
+        case "*":
+        case "/":
+            if (firstNumber != "" && secondNumber != "") {
+                operate();
+            }
+            operator = op.value;
+            dotButton.disabled = false;
+          break;
+        default:
+            dotButton.disabled = false;
+            operator = op.value;
+          break;
+      }
+
+    showDisplay = firstNumber + operator + secondNumber;
     document.getElementById("nmb").innerHTML = showDisplay;
   });
 });
@@ -73,27 +117,25 @@ deleteButton.addEventListener("click", function () {
     case "*":
     case "/":
       secondNumber = secondNumber.substring(0, secondNumber.length - 1);
-      if (secondNumber.includes != ".") {
+      if (secondNumber.includes(".") == false) {
         dotButton.disabled = false;
       }
       break;
     default:
       firstNumber = firstNumber.substring(0, firstNumber.length - 1);
-      if (secondNumber.includes != ".") {
+      if (firstNumber.includes(".") == false) {
         dotButton.disabled = false;
       }
       break;
   }
 
-  let showDisplay = firstNumber + operator + secondNumber;
+  showDisplay = firstNumber + operator + secondNumber;
   document.getElementById("nmb").innerHTML = showDisplay;
 });
 
 equalButton.addEventListener("click", () => {
     operate();
-} 
-
-);
+});
 
 function add(a, b) {
   result = a + b;
@@ -125,20 +167,23 @@ function divide(a, b) {
 
 function operate () {
     dotButton.disabled = false;
-
     a = parseFloat(firstNumber);
     b = parseFloat(secondNumber);
-  
+    let showDisplay = firstNumber + operator + secondNumber;
     if (operator == "+") {
       add(a, b);
     } else if (operator == "-") {
       subtract(a, b);
     } else if (operator == "*") {
-      multiply(a, b);
+        multiply(a, b);
     } else {
-      divide(a, b);
+        if (a == 0 || b == 0) {
+            showDisplay = "Du kleiner Ganove!";
+        } else if (isNaN(a) && isNaN(b)) {
+            showDisplay = "Ohne moos nix los!";
+        } else {
+            divide(a, b);
+        }
     }
-  
-    let showDisplay = firstNumber + operator + secondNumber;
     document.getElementById("nmb").innerHTML = showDisplay;
-}
+};
