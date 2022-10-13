@@ -1,29 +1,28 @@
-@import url('https://fonts.googleapis.com/css2?family=Fira+Sans&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Fira+Sans&display=swap");
 .body {
-    font-family: "Fira Sans", sans-serif;
-    background-color: #8ECAE6;
-    color: #023047;
+  font-family: "Fira Sans", sans-serif;
+  background-color: #8ecae6;
+  color: #023047;
 }
 
 .title {
-    text-align: center;
-
+  text-align: center;
 }
 
 .calculator {
-    display: grid;
-    border: 0.4em solid #023047;
-    background-color: #DFD3C3;
-    border-radius: 1.5em;
-    margin: auto;
-    height: 40em;
-    width: 30em;
-    justify-content: center;
-    align-content: center;
-    grid-template-columns: 6em 6em 6em 6em;
-    grid-template-rows: 7em 5em 6em 6em 6em 6em;
-    gap: 0.5em;
-    grid-template-areas: 
+  display: grid;
+  border: 0.4em solid #023047;
+  background-color: #dfd3c3;
+  border-radius: 1.5em;
+  margin: auto;
+  height: 40em;
+  width: 30em;
+  justify-content: center;
+  align-content: center;
+  grid-template-columns: 6em 6em 6em 6em;
+  grid-template-rows: 7em 5em 6em 6em 6em 6em;
+  gap: 0.5em;
+  grid-template-areas:
     "display display display display"
     "delete delete clear clear"
     "seven eight nine divide"
@@ -33,97 +32,96 @@
 }
 
 .display {
-    display: grid;
-    grid-area: display;
-    background-color: rgb(255, 255, 255);
-    border: 0.3em solid #023047;
-    border-radius: 0.5em;
-    justify-items: end;
-    align-items: center;
-    font-size: 1.5em;
-    overflow: hidden;
+  display: grid;
+  grid-area: display;
+  background-color: rgb(255, 255, 255);
+  border: 0.3em solid #023047;
+  border-radius: 0.5em;
+  justify-items: end;
+  align-items: center;
+  font-size: 1.5em;
+  overflow: hidden;
 }
 
 .buttons {
-    border-radius: 0.5em;
-    border-color: #023047;
-    background-color: #D0B8A8;
-    font-size: 1.5em;
+  border-radius: 0.5em;
+  border-color: #023047;
+  background-color: #d0b8a8;
+  font-size: 1.5em;
 }
 
 .buttons:active {
-    transform: scale(0.98);
+  transform: scale(0.98);
 }
 
 .delete {
-    background-color: #D27B31;
+  background-color: #d27b31;
 }
 
 .clear {
-    background-color: #969876;
-} 
+  background-color: #969876;
+}
 .button-1 {
-    grid-area: delete;
-} 
+  grid-area: delete;
+}
 .button-2 {
-    grid-area: clear;
-
+  grid-area: clear;
 }
 .button-3 {
-    grid-area: seven;
+  grid-area: seven;
 }
 .button-4 {
-    grid-area: eight;
+  grid-area: eight;
 }
 .button-5 {
-    grid-area: nine;
+  grid-area: nine;
 }
 .button-6 {
-    grid-area: divide;
+  grid-area: divide;
 }
 .button-7 {
-    grid-area: four;
+  grid-area: four;
 }
 .button-8 {
-    grid-area: five;
+  grid-area: five;
 }
 
 .button-9 {
-    grid-area: six;
+  grid-area: six;
 }
 
 .button-10 {
-    grid-area: multiply;
+  grid-area: multiply;
 }
 
 .button-11 {
-    grid-area: one;
+  grid-area: one;
 }
 
 .button-12 {
-    grid-area: two;
+  grid-area: two;
 }
 
 .button-13 {
-    grid-area: three;
+  grid-area: three;
 }
 
 .button-14 {
-    grid-area: minus;
+  grid-area: minus;
 }
 
 .button-15 {
-    grid-area: point;
+  grid-area: point;
 }
 
 .button-16 {
-    grid-area: null;
+  grid-area: null;
 }
 
 .button-17 {
-    grid-area: equal;
+  grid-area: equal;
 }
 
 .button-18 {
-    grid-area: plus;
+  grid-area: plus;
 }
